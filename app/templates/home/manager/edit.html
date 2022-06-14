@@ -1,0 +1,47 @@
+<div class="window-card">
+    <div class="group">
+        <div class="group-title">
+            <h3 class="no-select">Editar Grupo</h3>
+        </div>
+        <div class="group-content">
+            <div class="group-info info-status">
+                <h3 class="no-select">Status</h3>
+                <div class="status {{group.containers.group.status}}"></div>
+            </div>
+            <div class="group-info">
+                <h3 class="no-select">Nome</h3>
+                <div class="group-info-input">
+                    <input type="text" class="group-name" name="name" id="name" placeholder="Nome do Grupo" value="{{group.containers.group.name}}">
+                </div>
+            </div>
+            <div class="group-info">
+                <h3 class="no-select">Tipo</h3>
+                <div class="group-info-input">
+                    <select class="group-name" name="type" id="type">
+                        <option value="{{group.containers.group.type}}" disabled selected>{{group.containers.group.type}}</option>
+                        <option value="FREE">FREE</option>
+                        <option value="VIP">VIP</option>
+                    </select>
+                </div>
+            </div>
+            <div class="group-info info-start">
+                <h3 class="no-select">Start</h3>
+                <div class="group-info-input">
+                    <input type="text" class="group-name" name="start" id="start" placeholder="Horário..." value="{{group.containers.group.start}}">
+                </div>
+            </div>
+            <div class="group-info info-limit">
+                <h3 class="no-select">Limite</h3>
+                <div class="group-info-input">
+                    <input type="number" class="group-name" name="limite" id="limite" placeholder="Quantidade de sinais" value="{{group.containers.group.limit}}">
+                </div>
+            </div>
+            <div class="btn-update-form btn-form">
+                <div id="{{group.containers.group.id}}" class="btn-update-button btn-button-form">Atualizar</div>
+            </div>
+        </div>
+        <div class="no-select close-notification">
+            <span>X</span>
+        </div>
+    </div>
+</div>
