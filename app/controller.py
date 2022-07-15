@@ -250,14 +250,14 @@ def api_get_groups():
         with open(os.path.join(path, 'change.json'), 'w') as f:
             json.dump({}, f, indent=4)
 
-            with open(os.path.join(path, name), 'r') as f:
+            with open(os.path.join(path, 'change.json'), 'r') as f:
                 now = datetime.datetime.now()
                 data = json.load(f)
                 data['changed'] = now
                 with open('change.json', 'w') as f:
                     json.dump(data, f, indent=4)
     else:
-        with open(os.path.join(path, name), 'r') as f:   
+        with open(os.path.join(path, 'change.json'), 'r') as f:   
             now = containers['changed']            
     
     containers['changed'] = now
