@@ -250,7 +250,7 @@ def api_get_groups():
         data = json.load(f)
 
         now = data['changed']
-        containers['changed'] = no
+        containers['changed'] = now
     
     return{
         'status': status,
