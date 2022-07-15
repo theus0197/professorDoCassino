@@ -108,14 +108,14 @@ def add_new_group(data):
         message = 'Nome do grupo não pode ser vazio!'
         if not os.path.exists(os.path.join(path, 'change.json')):
             with open(os.path.join(path, 'change.json'), 'w') as f:
-                json.dump({"changed":""}, f, indent=4)
+                now = datetime.datetime.now()
+                json.dump({"changed":now}, f, indent=4)
 
-        with open('change.json', 'r') as f:
-            now = datetime.datetime.now()
-            data = json.load(f)
-            data['changed'] = now
-            with open('change.json', 'w') as f:
-                json.dump(data, f, indent=4)
+            with open(os.path.join(path, 'change.json'), 'r') as f:
+                now = datetime.datetime.now()
+                data['changed'] = now
+                with open(os.path.join(path, 'change.json'), 'w') as f:
+                    json.dump(data, f, indent=4)
 
     return{
         'status': status,
@@ -184,6 +184,18 @@ def update_group(data):
                     containers = {
                         'group': dt[i]
                     }
+
+                    if not os.path.exists(os.path.join(path, 'change.json')):
+                        with open(os.path.join(path, 'change.json'), 'w') as f:
+                            now = datetime.datetime.now()
+                            json.dump({"changed":now}, f, indent=4)
+
+                    with open(os.path.join(path, 'change.json'), 'r') as f:
+                        now = datetime.datetime.now()
+                        data['changed'] = now
+                        with open(os.path.join(path, 'change.json'), 'w') as f:
+                            json.dump(data, f, indent=4)
+                            
                     break
                 else:
                     status = False
@@ -248,20 +260,20 @@ def api_get_groups():
 
     if not os.path.exists(os.path.join(path, 'change.json')):
         with open(os.path.join(path, 'change.json'), 'w') as f:
-            json.dump({"changed":""}, f, indent=4)
-
-            with open(os.path.join(path, 'change.json'), 'r') as f:
-                now = datetime.datetime.now()
-                data = f
-                data['changed'] = now
-                with open('change.json', 'w') as f:
-                    json.dump(data, f, indent=4)
+            now = datetime.datetime.now()
+            json.dump({"changed":now}, f, indent=4)
     else:
-        with open(os.path.join(path, 'change.json'), 'r') as f:   
-            now = containers['changed']            
+        with open(os.path.join(path, 'change.json'), 'r') as f:
+            data = f
+            if data['changed'] == "":
+                now = datetime.datetime.now()
+                data['changed'] = now
+                with open(os.path.join(path, 'change.json'), 'w') as f:
+                    json.dump(data, f, indent=4)
+            else:
+                now = containers['changed']            
     
     containers['changed'] = now
-    
     return{
         'status': status,
         'message': message,
