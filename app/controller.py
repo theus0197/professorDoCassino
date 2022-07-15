@@ -117,8 +117,6 @@ def add_new_group(data):
             with open('change.json', 'w') as f:
                 json.dump(data, f, indent=4)
 
-            print(data)
-
     return{
         'status': status,
         'message': message,
@@ -248,11 +246,21 @@ def api_get_groups():
             'groups': data
         }
 
-    with open(os.path.join(path, name), 'r') as f:
-        data = json.load(f)
+    if not os.path.exists(os.path.join(path, 'change.json')):
+        with open(os.path.join(path, 'change.json'), 'w') as f:
+            json.dump({}, f, indent=4)
 
-        now = data['changed']
-        containers['changed'] = now
+            with open(os.path.join(path, name), 'r') as f:
+                now = datetime.datetime.now()
+                data = json.load(f)
+                data['changed'] = now
+                with open('change.json', 'w') as f:
+                    json.dump(data, f, indent=4)
+    else:
+        with open(os.path.join(path, name), 'r') as f:   
+            now = containers['changed']            
+    
+    containers['changed'] = now
     
     return{
         'status': status,
