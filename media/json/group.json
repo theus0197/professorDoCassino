@@ -1,1 +1,26 @@
-[]
+[
+    {
+        "id": "20220615140935",
+        "status": true,
+        "name": "Victorytips | Double VIP",
+        "type": "FREE",
+        "start": "15:55",
+        "limit": "3"
+    },
+    {
+        "id": "20220702124331",
+        "status": true,
+        "name": "Victorytips | Double VIP",
+        "type": "FREE",
+        "start": "15:35",
+        "limit": "2"
+    },
+    {
+        "id": "20220702140224",
+        "status": false,
+        "name": "Victorytips | Double VIP",
+        "type": "FREE",
+        "start": "16:00",
+        "limit": "10"
+    }
+]
