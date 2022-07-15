@@ -108,7 +108,7 @@ def add_new_group(data):
         message = 'Nome do grupo não pode ser vazio!'
         if not os.path.exists(os.path.join(path, 'change.json')):
             with open(os.path.join(path, 'change.json'), 'w') as f:
-                json.dump({}, f, indent=4)
+                json.dump({"changed":""}, f, indent=4)
 
         with open('change.json', 'r') as f:
             now = datetime.datetime.now()
@@ -248,7 +248,7 @@ def api_get_groups():
 
     if not os.path.exists(os.path.join(path, 'change.json')):
         with open(os.path.join(path, 'change.json'), 'w') as f:
-            json.dump({}, f, indent=4)
+            json.dump({"changed":""}, f, indent=4)
 
             with open(os.path.join(path, 'change.json'), 'r') as f:
                 now = datetime.datetime.now()
