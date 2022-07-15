@@ -111,11 +111,10 @@ def add_new_group(data):
                 now = str(datetime.datetime.now())
                 json.dump({"changed":now}, f, indent=4)
 
-            with open(os.path.join(path, 'change.json'), 'r') as f:
-                now = datetime.datetime.now()
-                data['changed'] = now
-                with open(os.path.join(path, 'change.json'), 'w') as f:
-                    json.dump(data, f, indent=4)
+            now = datetime.datetime.now()
+            data['changed'] = now
+            with open(os.path.join(path, 'change.json'), 'w') as f:
+                json.dump(data, f, indent=4)
 
     return{
         'status': status,
@@ -190,11 +189,10 @@ def update_group(data):
                             now = datetime.datetime.now()
                             json.dump({"changed":now}, f, indent=4)
 
-                    with open(os.path.join(path, 'change.json'), 'r') as f:
-                        now = str(datetime.datetime.now())
-                        data['changed'] = now
-                        with open(os.path.join(path, 'change.json'), 'w') as f:
-                            json.dump(data, f, indent=4)
+                    now = str(datetime.datetime.now())
+                    data['changed'] = now
+                    with open(os.path.join(path, 'change.json'), 'w') as f:
+                        json.dump(data, f, indent=4)
 
                     break
                 else:
@@ -264,7 +262,7 @@ def api_get_groups():
             json.dump({"changed":now}, f, indent=4)
     else:
         with open(os.path.join(path, 'change.json'), 'r') as f:
-            data = f
+            data = json.load(f)
             if data['changed'] == "":
                 now = datetime.datetime.now()
                 data['changed'] = now
