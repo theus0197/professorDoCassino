@@ -96,9 +96,5 @@ def delete_group(request):
 
 @csrf_exempt
 def api_get_groups(request):
-    if request.method == 'POST':
-        response = controller.api_get_groups()
-        return JsonResponse(response)
-    else:
-        response = controller.method_not_allowed()
+    response = controller.api_get_groups()
     return JsonResponse(response)
