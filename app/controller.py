@@ -102,10 +102,20 @@ def add_new_group(data):
         
         status = True
         message = 'Grupo adicionado com sucesso!'
+
     else:
         status = False
         message = 'Nome do grupo não pode ser vazio!'
-            
+        if not os.path.exists(os.path.join(path, 'change.json')):
+            with open(os.path.join(path, 'change.json'), 'w') as f:
+                json.dump({}, f, indent=4)
+
+        with open('change.json', 'r') as f:
+            now = datetime.datetime.now()
+            data = json.load(f)
+            data['changed'] = now
+            with open('change.json', 'w') as f:
+                json.dump(data, f, indent=4)
 
     return{
         'status': status,
@@ -235,6 +245,12 @@ def api_get_groups():
         containers = {
             'groups': data
         }
+
+    with open(os.path.join(path, name), 'r') as f:
+        data = json.load(f)
+
+        now = data['changed']
+        containers['changed'] = no
     
     return{
         'status': status,
