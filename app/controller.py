@@ -3,6 +3,20 @@ from django.conf import settings
 import json
 import os
 import datetime
+import ftplib
+import requests
+
+def ftp(file, name):
+    server = ftplib.FTP()
+    server.connect('31.170.160.95', 21)
+
+    server.login('u403612333', 'Hz;gMM&0')
+    #server.dir()
+
+    #save file in path Frogti in server
+    server.cwd('/domains/engenbot.com/public_html/VictoryTips')
+    server.storbinary('STOR {}.json'.format(name), file)
+    file.close()
 
 def load_json(data):
     return json.loads(data)
@@ -42,21 +56,13 @@ def signout(request):
     }
 
 def get_groups():
-    path = os.path.join(settings.MEDIA_ROOT, 'json')
-    name = 'group.json'
-
-    if os.path.exists(os.path.join(path, name)):
-        with open(os.path.join(path, name), 'r') as f:
-            data = json.load(f)
-            status = True
-            message = 'Grupos carregados com sucesso!'
-            containers = {
-                'groups': data
-            }
-    else:
-        status = False
-        message = 'Nenhum grupo encontrado!'
-        containers= {}
+    response = requests.get('http://engenbot.com/VictoryTips/group.json')
+    data = response.json()
+    status = True
+    message = 'Grupos carregados com sucesso!'
+    containers = {
+        'groups': data
+    }
 
     return{
         'status': status,
@@ -89,32 +95,21 @@ def add_new_group(data):
         path = os.path.join(settings.MEDIA_ROOT, 'json')
         name = 'group.json'
 
-        if os.path.exists(os.path.join(path, name)):
-            with open(os.path.join(path, name), 'r') as f:
-                data = json.load(f)
-                data.append(dict)
-                with open(os.path.join(path, name), 'w') as f:
-                    json.dump(data, f, indent=4)
+        response = requests.get('http://engenbot.com/VictoryTips/group.json')
+        data = response.json()
+        data.append(dict)
+        with open(os.path.join(path, name), 'w') as f:
+                json.dump(data, f, indent=4)
 
-        else:
-            with open(os.path.join(path, name), 'w') as f:
-                json.dump([dict], f, indent=4)
+        file = open(os.path.join(path, name), 'rb')
+        ftp(file, name.replace('.json', ''))
         
         status = True
         message = 'Grupo adicionado com sucesso!'
-
     else:
         status = False
         message = 'Nome do grupo não pode ser vazio!'
-        if not os.path.exists(os.path.join(path, 'change.json')):
-            with open(os.path.join(path, 'change.json'), 'w') as f:
-                now = str(datetime.datetime.now())
-                json.dump({"changed":now}, f, indent=4)
-
-            now = datetime.datetime.now()
-            data['changed'] = now
-            with open(os.path.join(path, 'change.json'), 'w') as f:
-                json.dump(data, f, indent=4)
+            
 
     return{
         'status': status,
@@ -123,30 +118,22 @@ def add_new_group(data):
     }
     
 def view_group(data):
-    data = load_json(data)
+    response = requests.get('http://engenbot.com/VictoryTips/group.json')
+    data = json.loads(data)
     id = data['id']
-    path = os.path.join(settings.MEDIA_ROOT, 'json')
-    name = 'group.json'
-
-    if os.path.exists(os.path.join(path, name)):
-        with open(os.path.join(path, name), 'r') as f:
-            data = json.load(f)
-            for group in data:
-                if group['id'] == id:
-                    status = True
-                    message = 'Grupo carregado com sucesso!'
-                    containers = {
-                        'group': group
-                    }
-                    break
-                else:
-                    status = False
-                    message = 'Grupo não encontrado!'
-                    containers = {}
-    else:
-        status = False
-        message = 'Nenhum grupo encontrado!'
-        containers = {}
+    data = response.json()
+    for group in data:
+        if group['id'] == id:
+            status = True
+            message = 'Grupo carregado com sucesso!'
+            containers = {
+                'group': group
+            }
+            break
+        else:
+            status = False
+            message = 'Grupo não encontrado!'
+            containers = {}
 
     return{
         'status': status,
@@ -166,43 +153,28 @@ def update_group(data):
     path = os.path.join(settings.MEDIA_ROOT, 'json')
     name = 'group.json'
 
-    if os.path.exists(os.path.join(path, name)):
-        with open(os.path.join(path, name), 'r') as f:
-            dt = json.load(f)
-            for i in range(len(dt)):
-                if dt[i]['id'] == id:
-                    dt[i]['status'] = gstatus
-                    dt[i]['name'] = gname
-                    dt[i]['type'] = type
-                    dt[i]['start'] = start
-                    dt[i]['limit'] = limit
-                    with open(os.path.join(path, name), 'w') as f:
-                        json.dump(dt, f, indent=4)
-                    status = True
-                    message = 'Grupo atualizado com sucesso!'
-                    containers = {
-                        'group': dt[i]
-                    }
-
-                    if not os.path.exists(os.path.join(path, 'change.json')):
-                        with open(os.path.join(path, 'change.json'), 'w') as f:
-                            now = datetime.datetime.now()
-                            json.dump({"changed":now}, f, indent=4)
-
-                    now = str(datetime.datetime.now())
-                    data['changed'] = now
-                    with open(os.path.join(path, 'change.json'), 'w') as f:
-                        json.dump(data, f, indent=4)
-
-                    break
-                else:
-                    status = False
-                    message = 'Grupo não encontrado!'
-                    containers = {}
-    else:
-        status = False
-        message = 'Nenhum grupo encontrado!'
-        containers = {}
+    response = requests.get('http://engenbot.com/VictoryTips/group.json')
+    dt = response.json()
+    for i in range(len(dt)):
+        if dt[i]['id'] == id:
+            dt[i]['status'] = gstatus
+            dt[i]['name'] = gname
+            dt[i]['type'] = type
+            dt[i]['start'] = start
+            dt[i]['limit'] = limit
+            with open(os.path.join(path, name), 'w') as f:
+                json.dump(dt, f, indent=4)
+            file = open(os.path.join(path, name), 'rb')
+            ftp(file, name.replace('.json', ''))
+            status = True
+            message = 'Grupo atualizado com sucesso!'
+            containers = {
+                'group': dt[i]
+            }
+            break
+        else:
+            status = False
+            message = 'Grupo não encontrado!'
 
     return{
         'status': status,
@@ -216,28 +188,28 @@ def delete_group(data):
     path = os.path.join(settings.MEDIA_ROOT, 'json')
     name = 'group.json'
 
-    if os.path.exists(os.path.join(path, name)):
-        with open(os.path.join(path, name), 'r') as f:
-            dt = json.load(f)
-            for group in dt:
-                if group['id'] == id:
-                    dt.remove(group)
-                    with open(os.path.join(path, name), 'w') as f:
-                        json.dump(dt, f, indent=4)
-                    status = True
-                    message = 'Grupo removido com sucesso!'
-                    containers = {
-                        'group': group
-                    }
-                    break
-                else:
-                    status = False
-                    message = 'Grupo não encontrado!'
-                    containers = {}
-    else:
-        status = False
-        message = 'Nenhum grupo encontrado!'
-        containers = {}
+    '''if os.path.exists(os.path.join(path, name)):
+        with open(os.path.join(path, name), 'r') as f:'''
+    response = requests.get('http://engenbot.com/VictoryTips/group.json')
+    dt = response.json()
+    for group in dt:
+        if group['id'] == id:
+            dt.remove(group)
+            with open(os.path.join(path, name), 'w') as f:
+                json.dump(dt, f, indent=4)
+
+            file = open(os.path.join(path, name), 'rb')
+            ftp(file, name.replace('.json', ''))
+            status = True
+            message = 'Grupo removido com sucesso!'
+            containers = {
+                'group': group
+            }
+            break
+        else:
+            status = False
+            message = 'Grupo não encontrado!'
+            containers = {}
     
     return{
         'status': status,
@@ -246,32 +218,14 @@ def delete_group(data):
     }
 
 def api_get_groups():
-    path = os.path.join(settings.MEDIA_ROOT, 'json')
-    name = 'group.json'
-    with open(os.path.join(path, name), 'r') as f:
-        data = json.load(f)
-        status = True
-        message = 'Grupos carregados com sucesso!'
-        containers = {
-            'groups': data
-        }
-
-    if not os.path.exists(os.path.join(path, 'change.json')):
-        with open(os.path.join(path, 'change.json'), 'w') as f:
-            now = str(datetime.datetime.now())
-            json.dump({"changed":now}, f, indent=4)
-    else:
-        with open(os.path.join(path, 'change.json'), 'r') as f:
-            data = json.load(f)
-            if data['changed'] == "":
-                now = datetime.datetime.now()
-                data['changed'] = now
-                with open(os.path.join(path, 'change.json'), 'w') as f:
-                    json.dump(data, f, indent=4)
-            else:
-                now = data['changed']            
+    response = requests.get('http://engenbot.com/VictoryTips/group.json')
+    data = response.json()
+    status = True
+    message = 'Grupos carregados com sucesso!'
+    containers = {
+        'groups': data
+    }
     
-    containers['changed'] = now
     return{
         'status': status,
         'message': message,

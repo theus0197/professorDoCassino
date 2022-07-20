@@ -10184,3 +10184,113 @@ JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e
 console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
 [Parent 7120, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
 [Parent 7120, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+1657905935414	geckodriver	INFO	Listening on 127.0.0.1:50935
+1657905971222	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "50936" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\faria\\AppData\\Local\\Temp\\rust_mozprofile7b3dL8"
+1657905973001	Marionette	INFO	Marionette enabled
+1657905973014	Marionette	INFO	Listening on port 50962
+WebDriver BiDi listening on ws://localhost:50936
+Read port: 50962
+1657905973220	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:50936/devtools/browser/efdd1f30-06ba-4330-9a77-375d2240608b
+JavaScript warning: https://web.telegram.org/k/main.c7caf042a32073e2d77c.bundle.js, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.1657906135152	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla FirefoxJavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+1657906235604	Marionette	INFO	Stopped listening on port 50962
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+proto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+1657906235004	Marionette	INFO	Stopped listening on port 51107
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1657906245587	geckodriver	INFO	Listening on 127.0.0.1:51223
+1657906277909	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "51224" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\faria\\AppData\\Local\\Temp\\rust_mozprofileFB77Of"
+1657906278599	Marionette	INFO	Marionette enabled
+1657906278603	Marionette	INFO	Listening on port 51249
+WebDriver BiDi listening on ws://localhost:51224
+Read port: 51249
+1657906278793	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:51224/devtools/browser/0254d95c-79ff-48d0-a102-26a7e84093e0
+JavaScript warning: https://web.telegram.org/k/main.c7caf042a32073e2d77c.bundle.js, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+1657906513408	Marionette	INFO	Stopped listening on port 51249
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1657906517121	geckodriver	INFO	Listening on 127.0.0.1:51467
+1657906547755	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "51468" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\faria\\AppData\\Local\\Temp\\rust_mozprofilelItX6g"
+1657906548808	Marionette	INFO	Marionette enabled
+1657906548812	Marionette	INFO	Listening on port 51501
+WebDriver BiDi listening on ws://localhost:51468
+Read port: 51501
+1657906549004	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:51468/devtools/browser/38d8e002-3597-43f0-ac66-a15c10fef6c2
+JavaScript warning: https://web.telegram.org/k/main.c7caf042a32073e2d77c.bundle.js, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.1657906660664	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "51585" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\faria\\AppData\\Local\\Temp\\rust_mozprofileFPxvd4"
+1657906661821	Marionette	INFO	Marionette enabled
+1657906661825	Marionette	INFO	Listening on port 51613
+WebDriver BiDi listening on ws://localhost:51585
+Read port: 51613
+1657906661924	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:51585/devtools/browser/3ee0286f-70ed-4df2-8714-1f17d9703be6
+JavaScript warning: https://web.telegram.org/k/main.c7caf042a32073e2d77c.bundle.js, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+1657906693619	Marionette	INFO	Stopped listening on port 51613
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1657906699423	geckodriver	INFO	Listening on 127.0.0.1:51670
+1657906728666	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "51671" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\faria\\AppData\\Local\\Temp\\rust_mozprofilegKMyVG"
+1657906729509	Marionette	INFO	Marionette enabled
+1657906729514	Marionette	INFO	Listening on port 51699
+WebDriver BiDi listening on ws://localhost:51671
+Read port: 51699
+1657906729617	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:51671/devtools/browser/669dba0c-de5a-4cbd-8b91-60b826620701
+JavaScript warning: https://web.telegram.org/k/main.c7caf042a32073e2d77c.bundle.js, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+JavaScript error: https://web.telegram.org/k/mtproto.worker.a93a401cd489c28ef89e.chunk.js, line 1: Error: [MT] Invalid server auth_key_id: 6cfeffff
+1657906854764	geckodriver	INFO	Listening on 127.0.0.1:51878
+1657906863378	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "51879" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\faria\\AppData\\Local\\Temp\\rust_mozprofileE14kuo"
+1657906864636	Marionette	INFO	Marionette enabled
+1657906864643	Marionette	INFO	Listening on port 51892
+WebDriver BiDi listening on ws://localhost:51879
+Read port: 51892
+1657906864933	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\faria\\AppData\\Local\\Temp\\rust_mozprofileE14kuo\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:51879/devtools/browser/44d45fef-c2b6-46a0-8a76-165b5caebd30
+JavaScript warning: https://web.telegram.org/k/main.c7caf042a32073e2d77c.bundle.js, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1657906969236	Marionette	INFO	Stopped listening on port 51892
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
