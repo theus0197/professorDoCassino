@@ -1,26 +1,34 @@
 [
     {
-        "id": "20220615140935",
+        "id": "20220719212710",
         "status": true,
         "name": "Victorytips | Double VIP",
-        "type": "FREE",
-        "start": "15:55",
-        "limit": "3"
+        "type": "VIP",
+        "start": "",
+        "limit": ""
     },
     {
-        "id": "20220702124331",
+        "id": "20220720085751",
+        "status": true,
+        "name": "Victorytips | Double FREE",
+        "type": "FREE",
+        "start": "15:10",
+        "limit": "8"
+    },
+    {
+        "id": "20220720124459",
         "status": true,
         "name": "Victorytips | Double VIP",
-        "type": "FREE",
-        "start": "15:35",
-        "limit": "2"
+        "type": "VIP",
+        "start": "",
+        "limit": ""
     },
     {
-        "id": "20220702140224",
-        "status": false,
+        "id": "20220720094543",
+        "status": true,
         "name": "Victorytips | Double VIP",
-        "type": "FREE",
-        "start": "16:00",
-        "limit": "10"
+        "type": "VIP",
+        "start": "",
+        "limit": ""
     }
 ]
