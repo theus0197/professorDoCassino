@@ -14,21 +14,5 @@
         "type": "FREE",
         "start": "15:10",
         "limit": "8"
-    },
-    {
-        "id": "20220720124459",
-        "status": true,
-        "name": "Victorytips | Double VIP",
-        "type": "VIP",
-        "start": "",
-        "limit": ""
-    },
-    {
-        "id": "20220720094543",
-        "status": true,
-        "name": "Victorytips | Double VIP",
-        "type": "VIP",
-        "start": "",
-        "limit": ""
     }
 ]
