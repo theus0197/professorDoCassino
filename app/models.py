@@ -6,9 +6,9 @@ from django.db.models.signals import post_save
 # Create your models here.
 
 class Clients(models.Model):
-    id = models.AutoField(primary_key=True)
+    id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=100)
-    cpf = models.CharField(max_length=11)
+    cpf = models.CharField(max_length=14)
     email = models.CharField(max_length=100, blank=True)
     roleta = models.BooleanField(default=False)
     dados = models.BooleanField(default=False)
