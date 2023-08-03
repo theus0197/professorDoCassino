@@ -12,8 +12,8 @@
 .main-left{
     width: 24rem;
     height: 100%;
-    background-color: #272727 ;
-    box-shadow: 0px 0px 10px rgba(253,134,108,0.9);
+    background-color: var(--white) ;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.9);
 }
 
 .main-left-menu{
@@ -43,6 +43,10 @@
     letter-spacing: .25rem;
     cursor: pointer;
     transition: .5s;
+    background-color: var(--grey);
+    box-shadow: 0px 0px 12px rgba(12,21,29,.78);
+    padding: 1rem 2rem;
+    border-radius: .5rem;
 }
 
 .menu-item h3{
@@ -55,7 +59,7 @@
 }
 
 .selected{
-    color: var(--light-orange);
+    color: var(--red);
 }
 
 .menu-logout{
@@ -74,14 +78,14 @@
     font-family: 'Secular One', sans-serif;
     font-size: 2.5rem;
     color: var(--white);
-    background-color: var(--orange);
+    background-color: var(--red);
     padding: 0 5rem;
     border-radius: 1rem;
     transition: .5s;
 }
 
 .btn-logout:hover{
-    background-color: var(--light-orange);
+    background-color: var(--red-light);
 }
 
 .main-right{
@@ -106,6 +110,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center; 
 }
 
 .content-header img{
@@ -116,7 +121,7 @@
 .content-header h3{
     font-family: 'Secular One', sans-serif;
     font-size: 2.8rem;
-    color: var(--orange);
+    color: var(--red);
 }
 
 .content-control{
@@ -135,16 +140,24 @@
 
 .btn-add{
     margin-left: 2rem;
-    background-color: var(--orange);
+    background-color: var(--red);
     color: var(--white);
     border-radius: 50%;
     padding: 0 1.5rem;
     cursor: pointer;
     font-size: 3rem;
+    box-shadow: 0px 0px 12px rgba(12,21,29,.78);
+    animation: pulseAnimation 1s infinite;
 }
 
 .btn-add:hover{
-    background-color: var(--light-orange);
+    background-color: var(--red-light);
+}
+
+@keyframes pulseAnimation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
 }
 
 .control-panel-manager{
@@ -157,7 +170,7 @@
 .line{
     width: 90%;
     height: 2px;
-    background-color: var(--orange);
+    background-color: var(--red);
     margin-top: .25rem;
     margin-bottom: 1rem;
 }
@@ -217,7 +230,7 @@
 }
 
 .group-row-in-row svg path:hover{
-    fill: var(--light-orange);
+    fill: var(--red-light);
 }
 
 .group-status{
@@ -240,7 +253,7 @@
 }
 
 .name-group:hover{
-    color: var(--orange);
+    color: var(--red);
 }
 
 .main-window{
@@ -257,10 +270,13 @@
 }
 
 .window-card{
-    height:80%;
+    position: relative;
+    height:fit-content;
+    padding-bottom: 3rem;
     width:40rem;
     background-color: #fff;
     border-radius: 1rem;
+    box-shadow: 0px 0px 12px rgb(0, 0, 0, 0.9);
 }
 
 .group{
@@ -340,16 +356,17 @@
     font-family: 'Secular One', sans-serif;
     font-size: 2.6rem;
     color: var(--white);
-    background-color: var(--orange);
+    background-color: var(--red);
     padding: 0 1.5rem;
     border-radius: 1rem;
     transition: .5s;
     cursor: pointer;
     margin-right: 1rem;
+    box-shadow: 0px 0px 8px rgb(0, 0, 0, 0.9);
 }
 
 .btn-add-button:hover{
-    background-color: var(--light-orange);
+    background-color: var(--red-light);
 }
 
 .close-notification {
@@ -360,7 +377,7 @@
     height: 3rem;
     background: var(--background-two);
     border-radius: 50%;
-    box-shadow: 0px 0px 10px rgb(255 255 255 / 50%);
+    box-shadow: 0px 0px 8px rgb(0, 0, 0, 0.9);
     cursor: pointer;
     transition: .3s;
     display: flex;
@@ -368,5 +385,62 @@
     align-items: center;
     margin-right: 1rem;
     margin-top: 1rem;
-    color: var(--grey);
+    color: var(--dark-grey);
+    font-weight: bold;
+}
+
+.close-notification:hover{
+    background: var(--red-light);
+}
+
+.game-title{
+    width: 15rem;
+}
+
+@media screen and (max-width: 800px) {
+    .no-mobile{
+        flex-direction: column;
+    }
+    .main-left{
+        position: relative;
+        width: 100%;
+        height: fit-content;
+        padding-bottom: 1rem;
+    }
+    .main-left-menu{
+        flex-direction: row;
+        width: 100%;
+    }
+    .menu-logo img{
+        width: 12rem;
+        margin-left: 1rem;
+    }
+    .menu-items{
+        margin-left: 1rem;
+    }
+    .menu-logout{
+        right: 0;
+        top: 0;
+        flex-direction: column;
+        width: fit-content;
+        bottom: auto;
+        left: auto;
+        align-items: end;
+        justify-content: end;
+        margin-top: 1rem;
+        margin-right: 1rem;
+    }
+    .window-card{
+        width: 90%;
+        height: 90%;
+    }
+    .group-content{
+        width:90%;
+        height: 90%;
+        margin-top: 1rem;
+        align-items: center;
+    }
+    .group-info h3{
+        text-align: center;
+    }
 }

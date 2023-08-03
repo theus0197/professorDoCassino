@@ -1,7 +1,7 @@
 {%extends 'structure.html'%}
 {%load static%}
 
-{%block title%}Professor do Cassino{%endblock%}
+{%block title%}VictoryTips - Bac Bo{%endblock%}
 
 {%block static%}
     <link rel='stylesheet' href='{%static "css/home/indexLogged.css"%}'>
@@ -23,6 +23,16 @@
                     <div class="menu-item">
                         <h3 class="no-select selected">Home</h3>
                     </div>
+                    <div class="menu-item">
+                        <a href="/bacbo">
+                            <h3 class="no-select selected">Bac Bo</h3>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="/crazy">
+                            <h3 class="no-select selected">Crazy Time</h3>
+                        </a>
+                    </div>
                 </div>
                 <div class="menu-logout">
                     <div class="menu-logout-button">
@@ -37,12 +47,12 @@
             <div class="main-right-content">
                 <div class="content-header">
                     <img class="no-select" src="{%static 'images/group.png'%}">
-                    <h3>Gerenciamento de Acessos</h3>
+                    <h3>Gerenciamento de Canais (Bac Bo)</h3>
                 </div>
                 <div class="content-control">
                     <div class="control-panel-add control-panel">
                         <div class="control-panel-function-title control-panel">
-                            <h3 class="no-select">Adicionar Cliente</h3>
+                            <h3 class="no-select">Adicionar Novo Canal</h3>
                         </div>
                         <div class="control-panel-function-button">
                             <div class="btn-add no-select">+</div>
@@ -50,7 +60,7 @@
                     </div>
                     <div class="control-panel-manager">
                         <div class="control-panel-function-title">
-                            <h3 class="no-select">Clientes Cadastrados</h3>
+                            <h3 class="no-select">Gerenciar Canais</h3>
                             <div class="line"></div>
                         </div>
                         <div class="control-panel-function-content">
@@ -59,8 +69,10 @@
                                     <h3 class="no-select">Nome</h3>
                                 </div>
                                 <div class="group-column">
-                                    <h3 class="no-select">CPF</h3>
+                                    <h3 class="no-select">Tipo</h3>
                                 </div>
+                                <div class="group-column">
+                                    <h3 class="no-select">Status</h3>
                                 </div>
                             </div>
                             <div class="manager-group-content">
@@ -80,6 +92,6 @@
 {%block scripts%}
     <script src='{%static "js/home/bacbo.js"%}'></script>
     <script>
-        getClients();
+        getGroups();
     </script>
 {%endblock%}

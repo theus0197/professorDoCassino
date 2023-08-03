@@ -16,7 +16,7 @@ def index(request):
         })
     else:
         return render(request, 'home/index.html')
-
+    
 @csrf_exempt
 def login(request):
     if request.method == 'POST':
@@ -37,18 +37,18 @@ def logout(request):
         return redirect('/')
 
 @csrf_exempt
-def get_group(request):
-    if request.method == 'POST':
-        response = controller.get_groups()
-        return render(request, 'home/manager/groups.html', {
-            'groups': response
+def get_client(request):
+    if request.user.is_authenticated:
+        response = controller.get_clients()
+        return render(request, 'home/manager/client.html', {
+            'clients': response
         })
     else:
         response = controller.method_not_allowed()
         return JsonResponse(response)
 
 @csrf_exempt
-def add_group(request):
+def add_client(request):
     if request.method == 'POST':
         return render(request, 'home/manager/add.html')
     else:
@@ -56,45 +56,59 @@ def add_group(request):
         return JsonResponse(response)
 
 @csrf_exempt
-def add_new_group(request):
+def add_new_client(request):
     if request.method == 'POST':
         data = request.body.decode('utf-8')
-        response = controller.add_new_group(data)
+        response = controller.add_new_client(data)
         return JsonResponse(response)
     else:
         response = controller.method_not_allowed()
         return JsonResponse(response)
 
 @csrf_exempt
-def view_group(request):
+def view_client(request):
     data = request.body.decode('utf-8')
-
-    response = controller.view_group(data)
+    response = controller.view_client(data)
     return render(request, 'home/manager/edit.html', {
-        'group': response
+        'client': response
     })
 
 @csrf_exempt
-def update_group(request):
+def update_client(request):
     if request.method == 'POST':
         data = request.body.decode('utf-8')
-        response = controller.update_group(data)
+        response = controller.update_client(data)
         return JsonResponse(response)
     else:
         response = controller.method_not_allowed()
     return JsonResponse(response)
 
 @csrf_exempt
-def delete_group(request):
+def delete_client(request):
     if request.method == 'POST':
         data = request.body.decode('utf-8')
-        response = controller.delete_group(data)
+        response = controller.delete_client(data)
         return JsonResponse(response)
     else:
         response = controller.method_not_allowed()
     return JsonResponse(response)
 
 @csrf_exempt
-def api_get_groups(request):
-    response = controller.api_get_groups()
+def api_get_clients(request):
+    if request.method == 'POST':
+        data = request.body.decode('utf-8')
+        response = controller.api_get_clients(data)
+        return JsonResponse(response)
+    else:
+        response = controller.method_not_allowed()
+    return JsonResponse(response)
+
+@csrf_exempt
+def api_get_game(request):
+    if request.method == 'POST':
+        data = request.body.decode('utf-8')
+        response = controller.authorized_app(data)
+        return JsonResponse(response)
+    else:
+        response = controller.method_not_allowed()
     return JsonResponse(response)

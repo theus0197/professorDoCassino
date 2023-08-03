@@ -5,21 +5,35 @@ import os
 import datetime
 import ftplib
 import requests
+from . import models
+
+if settings.DEBUG:
+    host = '127.0.0.1:8000'
+    url = 'http://{}/media/json'.format(host)
+else:
+    host = ''
+    url = 'http://{}/BotMilionario'.format(host)
 
 def ftp(file, name):
-    server = ftplib.FTP()
-    server.connect('31.170.160.95', 21)
+    if settings.DEBUG is False:
+        server = ftplib.FTP()
+        server.connect('31.170.160.95', 21)
 
-    server.login('u403612333', 'Hz;gMM&0')
-    #server.dir()
+        server.login('u403612333', 'Hz;gMM&0')
+        #server.dir()
 
-    #save file in path Frogti in server
-    server.cwd('/domains/engenbot.com/public_html/VictoryTips')
-    server.storbinary('STOR {}.json'.format(name), file)
-    file.close()
+        #save file in path Frogti in server
+        server.cwd('/domains/engenbot.com/public_html/VictoryTips')
+        server.storbinary('STOR {}.json'.format(name), file)
+        file.close()
 
 def load_json(data):
-    return json.loads(data)
+    try:
+        data = json.loads(data)
+    except:
+        data = []
+
+    return data
 
 def method_not_allowed():
     return {
@@ -32,6 +46,7 @@ def signin(data, request):
     data = load_json(data)
     username = data['username']
     password = data['password']
+    print(data)
     user = authenticate(username=username, password=password)
     if user is not None:
         loginProcess(request, user)
@@ -55,13 +70,12 @@ def signout(request):
         'containers': {}
     }
 
-def get_groups():
-    response = requests.get('http://engenbot.com/VictoryTips/group.json')
-    data = response.json()
+def get_clients():
+    clients = models.Clients.objects.all()
     status = True
-    message = 'Grupos carregados com sucesso!'
+    message = 'Clientes carregados com sucesso!'
     containers = {
-        'groups': data
+        'clients': clients
     }
 
     return{
@@ -70,45 +84,40 @@ def get_groups():
         'containers': containers
     }
 
-def add_new_group(data):
+def add_new_client(data):
     data = load_json(data)
-
-    #generate id with datetime
-    now = datetime.datetime.now()
-    id = now.strftime("%Y%m%d%H%M%S")
-    status = data['status']
+    id = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
     name = data['name']
-    type = data['type']
-    start = data['start']
-    limit = data['limite']
+    cpf = data['cpf'].replace(' ', '')
+    email = data['email']
+    roleta = True if data['roleta'] == 'true' else False
+    dados = True if data['dados'] == 'true' else False
+    football = True if data['football'] == 'true' else False
 
     if name != '':
-        dict = {
-            'id': id,
-            'status': status,
-            'name': name,
-            'type': type,
-            'start': start,
-            'limit': limit
-        }
-
-        path = os.path.join(settings.MEDIA_ROOT, 'json')
-        name = 'group.json'
-
-        response = requests.get('http://engenbot.com/VictoryTips/group.json')
-        data = response.json()
-        data.append(dict)
-        with open(os.path.join(path, name), 'w') as f:
-                json.dump(data, f, indent=4)
-
-        file = open(os.path.join(path, name), 'rb')
-        ftp(file, name.replace('.json', ''))
-        
-        status = True
-        message = 'Grupo adicionado com sucesso!'
+        if cpf != '':
+            if models.Clients.objects.filter(cpf=cpf).exists():
+                status = False
+                message = 'Esse usuário já está cadastrado!'
+            else:
+                new_client = models.Clients(
+                    id=id,
+                    name=name,
+                    cpf=cpf,
+                    email=email,
+                    roleta=roleta,
+                    dados=dados,
+                    football=football
+                )
+                new_client.save()
+                status = True
+                message = 'Grupo adicionado com sucesso!'
+        else:
+            status = False
+            message = 'CPF do client não pode estar vazio!'
     else:
         status = False
-        message = 'Nome do grupo não pode ser vazio!'
+        message = 'Nome do cliente não pode estar vazio!'
             
 
     return{
@@ -117,23 +126,29 @@ def add_new_group(data):
         'containers': {}
     }
     
-def view_group(data):
-    response = requests.get('http://engenbot.com/VictoryTips/group.json')
-    data = json.loads(data)
-    id = data['id']
-    data = response.json()
-    for group in data:
-        if group['id'] == id:
-            status = True
-            message = 'Grupo carregado com sucesso!'
-            containers = {
-                'group': group
+def view_client(data):
+    data = load_json(data)
+    id_ = data['id']
+    if models.Clients.objects.filter(id=id_).exists():
+        status = True
+        message = 'Usuário encontrado com sucesso!'
+        user = models.Clients.objects.get(id=id_)
+        containers = {
+            'client': {
+                'id': user.id,
+                'name': user.name,
+                'cpf': user.cpf,
+                'email': user.email,
+                'roleta': 'true' if user.roleta is True else 'false',
+                'dados': 'true' if user.dados is True else 'false',
+                'football': 'true' if user.football is True else 'false'
             }
-            break
-        else:
-            status = False
-            message = 'Grupo não encontrado!'
-            containers = {}
+        }
+    else:
+        status = False
+        message = 'Esse não está cadastrado'
+        containers = {}
+        
 
     return{
         'status': status,
@@ -141,75 +156,80 @@ def view_group(data):
         'containers': containers
     }
 
-def update_group(data):
+def update_client(data):
     data = load_json(data)
-    id = data['id']
-    gstatus = data['status']
-    gname = data['name']
-    type = data['type']
-    start = data['start']
-    limit = data['limite']
+    id_ = data['id']
+    name = data['name']
+    cpf = data['cpf']
+    email = data['email']
+    roleta = True if data['roleta'] == 'true' else False
+    dados = True if data['dados'] == 'true' else False
+    football = True if data['football'] == 'true' else False
+    if models.Clients.objects.filter(id=id_).exists():
+        status = True
+        message = 'Usuário encontrado com sucesso!'
+        user = models.Clients.objects.get(id=id_)
+        user.name = name
+        user.cpf = cpf
+        user.email = email
+        user.roleta = roleta
+        user.dados = dados
+        user.football = football
+        user.save()
+    else:
+        status = False
+        message = 'Usuário não encontrado'
 
-    path = os.path.join(settings.MEDIA_ROOT, 'json')
-    name = 'group.json'
-
-    response = requests.get('http://engenbot.com/VictoryTips/group.json')
-    dt = response.json()
-    for i in range(len(dt)):
-        if dt[i]['id'] == id:
-            dt[i]['status'] = gstatus
-            dt[i]['name'] = gname
-            dt[i]['type'] = type
-            dt[i]['start'] = start
-            dt[i]['limit'] = limit
-            with open(os.path.join(path, name), 'w') as f:
-                json.dump(dt, f, indent=4)
-            file = open(os.path.join(path, name), 'rb')
-            ftp(file, name.replace('.json', ''))
-            status = True
-            message = 'Grupo atualizado com sucesso!'
-            containers = {
-                'group': dt[i]
-            }
-            break
-        else:
-            status = False
-            message = 'Grupo não encontrado!'
 
     return{
         'status': status,
         'message': message,
-        'containers': containers
+        'containers': {}
     }
 
-def delete_group(data):
+def delete_client(data):
     data = load_json(data)
-    id = data['id']
-    path = os.path.join(settings.MEDIA_ROOT, 'json')
-    name = 'group.json'
+    id_ = data['id']
 
-    '''if os.path.exists(os.path.join(path, name)):
-        with open(os.path.join(path, name), 'r') as f:'''
-    response = requests.get('http://engenbot.com/VictoryTips/group.json')
-    dt = response.json()
-    for group in dt:
-        if group['id'] == id:
-            dt.remove(group)
-            with open(os.path.join(path, name), 'w') as f:
-                json.dump(dt, f, indent=4)
+    if models.Clients.objects.filter(id=id_).exists():
+        user = models.Clients.objects.get(id=id_)
+        user.delete()
+        status = True
+        message = 'Usuário removido com sucesso!'
+    else:
+        status = False
+        message = 'Usuário não encontrado'
+    
+    return{
+        'status': status,
+        'message': message,
+        'containers': {}
+    }
 
-            file = open(os.path.join(path, name), 'rb')
-            ftp(file, name.replace('.json', ''))
+def api_get_clients(data):
+    data = load_json(data)
+    print(data)
+    cpf = data['cpf']
+    if cpf != '':
+        if models.Clients.objects.filter(cpf=cpf).exists():
+            user = models.Clients.objects.get(cpf=cpf)
             status = True
-            message = 'Grupo removido com sucesso!'
+            message = 'Olá {}, seu acesso foi liberado ;)'
             containers = {
-                'group': group
+                'name': user.name,
+                'email': user.email,
+                'dados': user.dados,
+                'roleta': user.roleta,
+                'football': user.football
             }
-            break
         else:
             status = False
-            message = 'Grupo não encontrado!'
+            message = 'Infelizmente seu acesso ainda não está liberado, contate o suporte!'
             containers = {}
+    else:
+        status = False
+        message = 'Preencha o campo CPF para verificar se você possui acesso!'
+        containers = {} 
     
     return{
         'status': status,
@@ -217,17 +237,39 @@ def delete_group(data):
         'containers': containers
     }
 
-def api_get_groups():
-    response = requests.get('http://engenbot.com/VictoryTips/group.json')
-    data = response.json()
-    status = True
-    message = 'Grupos carregados com sucesso!'
-    containers = {
-        'groups': data
-    }
-    
-    return{
+def authorized_app(data):
+    data = load_json(data)
+    cpf = data['cpf']
+    game = data['game']
+    if cpf != '':
+        if models.Clients.objects.filter(cpf=cpf).exists():
+            user = models.Clients.objects.get(cpf=cpf)
+            if game == 'roleta':
+                status_game = True if user.roleta else False
+            elif game == 'dados':
+                status_game = True if user.dados else False
+            elif game == 'dice':
+                status_game = True if user.dice else False
+            else:
+                status_game = False
+            status = True
+            message = 'Condição do game foi coletada com sucesso!'
+            containers = {
+                'status_game': status_game
+            }
+        else:
+            status = False
+            message = 'Infelizmente seu acesso ainda não está liberado, contate o suporte!'
+            containers = {}
+    else:
+        status = False
+        message = 'Preencha o campo CPF para verificar se você possui acesso!'
+        containers = {} 
+
+    return {
         'status': status,
         'message': message,
         'containers': containers
     }
+
+

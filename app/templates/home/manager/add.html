@@ -1,40 +1,38 @@
 <div class="window-card">
     <div class="group">
         <div class="group-title">
-            <h3 class="no-select">Adicionar Novo Grupo</h3>
+            <h3 class="no-select">Adicionar Cliente</h3>
         </div>
         <div class="group-content">
-            <div class="group-info info-status">
-                <h3 class="no-select">Status</h3>
-                <div class="status true"></div>
-            </div>
             <div class="group-info">
                 <h3 class="no-select">Nome</h3>
                 <div class="group-info-input">
-                    <input type="text" class="group-name" name="name" id="name" placeholder="Nome do Grupo">
-                </div>
-            </div>
-            <div class="group-info">
-                <h3 class="no-select">Tipo</h3>
-                <div class="group-info-input">
-                    <select class="group-name" name="type" id="type">
-                        <option value="" disabled selected>Selecione</option>
-                        <option value="FREE">FREE</option>
-                        <option value="VIP">VIP</option>
-                    </select>
+                    <input type="text" class="group-name" name="name" id="name" placeholder="Evandro Alves">
                 </div>
             </div>
             <div class="group-info info-start">
-                <h3 class="no-select">Start</h3>
+                <h3 class="no-select">CPF</h3>
                 <div class="group-info-input">
-                    <input type="text" class="group-name" name="start" id="start" placeholder="Horário...">
+                    <input type="text" class="group-name" name="cpf" id="cpf" placeholder="999.999.999-99">
                 </div>
             </div>
             <div class="group-info info-limit">
-                <h3 class="no-select">Limite</h3>
+                <h3 class="no-select">E-mail</h3>
                 <div class="group-info-input">
-                    <input type="number" class="group-name" name="limite" id="limite" placeholder="Quantidade de sinais">
+                    <input type="text" class="group-name" name="email" id="email" placeholder="teste@uorak.com">
                 </div>
+            </div>
+            <div class="group-info info-status">
+                <h3 class="no-select game-title">Roleta</h3>
+                <div id="roleta" class="status false" data-id="false"></div>
+            </div>
+            <div class="group-info info-status">
+                <h3 class="no-select game-title">Dados (Bac Bo)</h3>
+                <div id="dados" class="status false" data-id="false"></div>
+            </div>
+            <div class="group-info info-status">
+                <h3 class="no-select game-title">Football</h3>
+                <div id="football" class="status false" data-id="false"></div>
             </div>
             <div class="btn-add-form btn-form">
                 <div class="btn-add-button btn-button-form">Adicionar</div>

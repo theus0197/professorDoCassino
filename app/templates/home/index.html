@@ -1,7 +1,7 @@
 {%extends 'structure.html'%}
 {%load static%}
 
-{%block title%}Victory Tips - Login{%endblock%}
+{%block title%}Professor do Cassino{%endblock%}
 
 {%block static%}
     <link rel='stylesheet' href='{%static "css/home/index.css"%}'>
@@ -14,37 +14,39 @@
 
 {%block content%}
     <section class="main no-mobile">
-        <div class="main-left main-sides">
-            <div class="main-card card-container-login">
-                <div class="card-container-login-title no-select">
-                    <h1>Login</h1>
-                </div>
-                <div class="card-container-login-form">
-                    <div class="card-login">
-                        <div class="card-login-title">
-                            <h3 class="no-select">Usuário</h3>
-                        </div>
-                        <div class="card-login-input">
-                            <input type="text" name="username" id="username" placeholder="Seu usuário...">
-                        </div>
-                    </div>
-                    <div class="card-login">
-                        <div class="card-login-title">
-                            <h3 class="no-select">Senha</h3>
-                        </div>
-                        <div class="card-login-input">
-                            <input type="password" name="password" id="password" placeholder="Sua senha...">
-                        </div>
-                    </div>
-                    <div class="card-login-button">
-                        <div class="btn-login no-select">Entrar</div>
-                    </div>
+        <div class="main-container">
+            <div class="main-right main-sides">
+                <div class="main-card card-container-logo">
+                    <img class="no-select" src="{%static 'images/logo.png'%}">
                 </div>
             </div>
-        </div>
-        <div class="main-right main-sides">
-            <div class="main-card card-container-logo">
-                <img class="no-select" src="{%static 'images/logo.png'%}">
+            <div class="main-left main-sides">
+                <div class="main-card card-container-login">
+                    <div class="card-container-login-title no-select">
+                        <h1>Login</h1>
+                    </div>
+                    <div class="card-container-login-form">
+                        <div class="card-login">
+                            <div class="card-login-title">
+                                <h3 class="no-select">Usuário</h3>
+                            </div>
+                            <div class="card-login-input">
+                                <input type="text" name="username" id="username" placeholder="Seu usuário...">
+                            </div>
+                        </div>
+                        <div class="card-login">
+                            <div class="card-login-title">
+                                <h3 class="no-select">Senha</h3>
+                            </div>
+                            <div class="card-login-input">
+                                <input type="password" name="password" id="password" placeholder="Sua senha...">
+                            </div>
+                        </div>
+                        <div class="card-login-button">
+                            <div class="btn-login no-select">Entrar</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
