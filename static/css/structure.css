@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    width: 100%;
+    font-family: SofiaPro,"Roboto",sans-serif!important;
+    -webkit-font-smoothing: antialiased;
+}
+
+header {
+    width: 100%;
+}
+
+
+body, html{
+    --orange: #FF5733;
+    --light-orange: #FD866C;
+    --red: #FF3026;
+    --red-light: #F9544C;
+    --white: #FFFFFF;
+    --black: #000000;
+    --grey: #F6F6F6;
+    --dark-grey: #333;
+}
+
+.no-select{
+    user-select: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+@keyframes changecolor{
+    0%{
+        fill: var(--green);
+    }
+    60%{
+        fill: #f6f6f6;
+    }
+    100%{
+        fill: var(--green);
+    }
+}
+
