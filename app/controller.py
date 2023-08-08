@@ -248,8 +248,8 @@ def authorized_app(data):
                 status_game = True if user.roleta else False
             elif game == 'dados':
                 status_game = True if user.dados else False
-            elif game == 'dice':
-                status_game = True if user.dice else False
+            elif game == 'football':
+                status_game = True if user.football else False
             else:
                 status_game = False
             status = True
