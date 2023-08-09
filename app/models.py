@@ -13,6 +13,9 @@ class Clients(models.Model):
     roleta = models.BooleanField(default=False)
     dados = models.BooleanField(default=False)
     football = models.BooleanField(default=False)
+    football_dice = models.BooleanField(default=False)
+    roleta_evo = models.BooleanField(default=False)
+    roleta_playtec = models.BooleanField(default=False)
 
     def __str__(self):
         return self.cpf
