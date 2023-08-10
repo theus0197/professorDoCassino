@@ -230,8 +230,10 @@ def api_get_clients(data):
                 'name': user.name,
                 'email': user.email,
                 'dados': user.dados,
-                'roleta': user.roleta,
-                'football': user.football
+                'roleta-evo': user.roleta_evo,
+                'roleta-playtech': user.roleta_playtech,
+                'football-dice': user.football_dice,
+                'football-studio': user.football_studio
             }
         else:
             status = False
@@ -259,9 +261,9 @@ def authorized_app(data):
                 status_game = True if user.roleta else False
             elif game == 'dados':
                 status_game = True if user.dados else False
-            elif game == 'football':
-                status_game = True if user.football else False
-            elif game == 'dice':
+            elif game == 'football-studio':
+                status_game = True if user.football_studio else False
+            elif game == 'football-dice':
                 status_game = True if user.football_dice else False
             elif game == 'roleta-evo':
                 status_game = True if user.roleta_evo else False
