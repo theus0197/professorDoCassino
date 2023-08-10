@@ -99,9 +99,11 @@ function update_test(){
         var name = document.getElementsByName('name')[0].value;
         var cpf = document.getElementsByName('cpf')[0].value;
         var email = document.getElementsByName('email')[0].value;
-        var roleta = document.getElementById('roleta').dataset.id;
+        var roleta_evo = document.getElementById('roleta-evo').dataset.id;
+        var roleta_playtech = document.getElementById('roleta-playtech').dataset.id;
         var dados = document.getElementById('dados').dataset.id;
-        var football = document.getElementById('football').dataset.id;
+        var football_studio = document.getElementById('football').dataset.id;
+        var football_dice = document.getElementById('football-dice').dataset.id;
         var xhr = new XMLHttpRequest();
         xhr.open('POST', '/update/client');
         xhr.setRequestHeader('Content-Type', 'application/json');
@@ -117,9 +119,11 @@ function update_test(){
             'name': name,
             'cpf': cpf,
             'email': email,
-            'roleta': roleta,
+            'roleta-evo': roleta_evo,
+            'roleta-playtech': roleta_playtech,
             'dados': dados,
-            'football': football
+            'football-studio': football_studio,
+            'football-dice': football_dice
         }));
     
     });
@@ -164,9 +168,11 @@ function add_test(){
         var name = document.getElementsByName('name')[0].value;
         var cpf = document.getElementsByName('cpf')[0].value;
         var email = document.getElementsByName('email')[0].value;
-        var roleta = document.getElementById('roleta').dataset.id;
+        var roleta_evo = document.getElementById('roleta-evo').dataset.id;
+        var roleta_playtech = document.getElementById('roleta-playtech').dataset.id;
         var dados = document.getElementById('dados').dataset.id;
-        var football = document.getElementById('football').dataset.id;
+        var football_studio = document.getElementById('football').dataset.id;
+        var football_dice = document.getElementById('football-dice').dataset.id;
         var xhr = new XMLHttpRequest();
         xhr.open('POST', '/add/newClient');
         xhr.setRequestHeader('Content-Type', 'application/json');
@@ -180,9 +186,11 @@ function add_test(){
             'name': name,
             'cpf': cpf,
             'email': email,
-            'roleta': roleta,
+            'roleta-evo': roleta_evo,
+            'roleta-playtech': roleta_playtech,
             'dados': dados,
-            'football': football
+            'football-studio': football_studio,
+            'football-dice': football_dice
         }));
     
     });
