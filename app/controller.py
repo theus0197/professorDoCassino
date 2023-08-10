@@ -90,9 +90,11 @@ def add_new_client(data):
     name = data['name']
     cpf = data['cpf'].replace(' ', '')
     email = data['email']
-    roleta = True if data['roleta'] == 'true' else False
+    roleta_evo = True if data['roleta-evo'] == 'true' else False
+    roleta_playtech = True if data['roleta-playtech'] == 'true' else False
     dados = True if data['dados'] == 'true' else False
-    football = True if data['football'] == 'true' else False
+    football_studio = True if data['football-studio'] == 'true' else False
+    football_dice = True if data['football-dice'] == 'true' else False
 
     if name != '':
         if cpf != '':
@@ -105,9 +107,11 @@ def add_new_client(data):
                     name=name,
                     cpf=cpf,
                     email=email,
-                    roleta=roleta,
+                    roleta_evo=roleta_evo,
+                    roleta_playtech=roleta_playtech,
                     dados=dados,
-                    football=football
+                    football_studio=football_studio,
+                    football_dice=football_dice
                 )
                 new_client.save()
                 status = True
@@ -139,9 +143,11 @@ def view_client(data):
                 'name': user.name,
                 'cpf': user.cpf,
                 'email': user.email,
-                'roleta': 'true' if user.roleta is True else 'false',
+                'roleta_evo': 'true' if user.roleta_evo is True else 'false',
                 'dados': 'true' if user.dados is True else 'false',
-                'football': 'true' if user.football is True else 'false'
+                'roleta_playtech': 'true' if user.roleta_playtech is True else 'false',
+                'football_dice': 'true' if user.football_dice is True else 'false',
+                'football_studio': 'true' if user.football_studio is True else 'false'
             }
         }
     else:
@@ -162,9 +168,12 @@ def update_client(data):
     name = data['name']
     cpf = data['cpf']
     email = data['email']
-    roleta = True if data['roleta'] == 'true' else False
+    roleta_evo = True if data['roleta-evo'] == 'true' else False
+    roleta_playtech = True if data['roleta-playtech'] == 'true' else False
     dados = True if data['dados'] == 'true' else False
-    football = True if data['football'] == 'true' else False
+    football_studio = True if data['football-studio'] == 'true' else False
+    football_dice = True if data['football-dice'] == 'true' else False
+
     if models.Clients.objects.filter(id=id_).exists():
         status = True
         message = 'Usuário encontrado com sucesso!'
@@ -172,9 +181,11 @@ def update_client(data):
         user.name = name
         user.cpf = cpf
         user.email = email
-        user.roleta = roleta
+        user.roleta_evo = roleta_evo
+        user.roleta_playtech = roleta_playtech
         user.dados = dados
-        user.football = football
+        user.footbal_studio = football_studio
+        user.footbal_dice = football_dice
         user.save()
     else:
         status = False
@@ -254,8 +265,8 @@ def authorized_app(data):
                 status_game = True if user.football_dice else False
             elif game == 'roleta-evo':
                 status_game = True if user.roleta_evo else False
-            elif game == 'roleta-playtec':
-                status_game = True if user.roleta_playtec else False
+            elif game == 'roleta-playtech':
+                status_game = True if user.roleta_playtech else False
             else:
                 status_game = False
             status = True

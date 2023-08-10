@@ -10,12 +10,11 @@ class Clients(models.Model):
     name = models.CharField(max_length=100)
     cpf = models.CharField(max_length=14)
     email = models.CharField(max_length=100, blank=True)
-    roleta = models.BooleanField(default=False)
     dados = models.BooleanField(default=False)
-    football = models.BooleanField(default=False)
+    football_studio = models.BooleanField(default=False)
     football_dice = models.BooleanField(default=False)
     roleta_evo = models.BooleanField(default=False)
-    roleta_playtec = models.BooleanField(default=False)
+    roleta_playtech = models.BooleanField(default=False)
 
     def __str__(self):
         return self.cpf
