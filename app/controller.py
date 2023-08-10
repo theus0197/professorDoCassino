@@ -184,8 +184,8 @@ def update_client(data):
         user.roleta_evo = roleta_evo
         user.roleta_playtech = roleta_playtech
         user.dados = dados
-        user.footbal_studio = football_studio
-        user.footbal_dice = football_dice
+        user.football_studio = football_studio
+        user.football_dice = football_dice
         user.save()
     else:
         status = False
