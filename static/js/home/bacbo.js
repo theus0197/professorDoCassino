@@ -102,7 +102,7 @@ function update_test(){
         var roleta_evo = document.getElementById('roleta-evo').dataset.id;
         var roleta_playtech = document.getElementById('roleta-playtech').dataset.id;
         var dados = document.getElementById('dados').dataset.id;
-        var football_studio = document.getElementById('football').dataset.id;
+        var football_studio = document.getElementById('football-studio').dataset.id;
         var football_dice = document.getElementById('football-dice').dataset.id;
         var xhr = new XMLHttpRequest();
         xhr.open('POST', '/update/client');
@@ -171,7 +171,7 @@ function add_test(){
         var roleta_evo = document.getElementById('roleta-evo').dataset.id;
         var roleta_playtech = document.getElementById('roleta-playtech').dataset.id;
         var dados = document.getElementById('dados').dataset.id;
-        var football_studio = document.getElementById('football').dataset.id;
+        var football_studio = document.getElementById('football-studio').dataset.id;
         var football_dice = document.getElementById('football-dice').dataset.id;
         var xhr = new XMLHttpRequest();
         xhr.open('POST', '/add/newClient');
