@@ -230,10 +230,10 @@ def api_get_clients(data):
                 'name': user.name,
                 'email': user.email,
                 'dados': user.dados,
-                'roleta-evo': user.roleta_evo,
-                'roleta-playtech': user.roleta_playtech,
-                'football-dice': user.football_dice,
-                'football-studio': user.football_studio
+                'roleta_evo': user.roleta_evo,
+                'roleta_playtech': user.roleta_playtech,
+                'football_dice': user.football_dice,
+                'football_studio': user.football_studio
             }
         else:
             status = False
