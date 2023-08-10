@@ -32,7 +32,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'professordocassino-production.up.railway.app',
     '127.0.0.1',
-    'https://professor.ocasinopro.com/'
+    'professor.ocasinopro.com'
 ]
 
 
@@ -52,7 +52,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.contrib.s essions.middleware.SessionMiddleware',
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",    
     'django.middleware.csrf.CsrfViewMiddleware',
