@@ -31,7 +31,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'professordocassino-production.up.railway.app',
-    '127.0.0.1'
+    '127.0.0.1',
+    'https://professor.ocasinopro.com/'
 ]
 
 
