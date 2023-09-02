@@ -235,7 +235,6 @@ def delete_client(data):
 
 def api_get_clients(data):
     data = load_json(data)
-    print(data)
     cpf = data['cpf']
     if cpf != '':
         if models.Clients.objects.filter(cpf=cpf).exists():
@@ -250,11 +249,13 @@ def api_get_clients(data):
                 'roleta_playtech': user.roleta_playtech,
                 'football_dice': user.football_dice,
                 'football_studio': user.football_studio,
-                'blaze': user.bet_blaze,
-                'estrelabet': user.bet_estrelabet,
-                'brxbet': user.bet_brxbet,
-                'betano': user.bet_betano,
-                'saurobet': user.bet_saurobet
+                'bets': {
+                    'blaze': user.bet_blaze,
+                    'estrelabet': user.bet_estrelabet,
+                    'brxbet': user.bet_brxbet,
+                    'betano': user.bet_betano,
+                    'saurobet': user.bet_saurobet
+                }
             }
         else:
             status = False
@@ -296,11 +297,13 @@ def authorized_app(data):
             message = 'Condição do game foi coletada com sucesso!'
             containers = {
                 'status_game': status_game, 
-                'blaze': user.bet_blaze,
-                'estrelabet': user.bet_estrelabet,
-                'brxbet': user.bet_brxbet,
-                'betano': user.bet_betano,
-                'saurobet': user.bet_saurobet
+                'bets': {
+                    'blaze': user.bet_blaze,
+                    'estrelabet': user.bet_estrelabet,
+                    'brxbet': user.bet_brxbet,
+                    'betano': user.bet_betano,
+                    'saurobet': user.bet_saurobet
+                }
 
             }
         else:
