@@ -104,6 +104,11 @@ function update_test(){
         var dados = document.getElementById('dados').dataset.id;
         var football_studio = document.getElementById('football-studio').dataset.id;
         var football_dice = document.getElementById('football-dice').dataset.id;
+        var blaze = document.getElementById('blaze').dataset.id;
+        var estrelabet = document.getElementById('estrelabet').dataset.id;
+        var brxbet = document.getElementById('brxbet').dataset.id;
+        var betano = document.getElementById('betano').dataset.id;
+        var saurobet = document.getElementById('saurobet').dataset.id;
         var xhr = new XMLHttpRequest();
         xhr.open('POST', '/update/client');
         xhr.setRequestHeader('Content-Type', 'application/json');
@@ -123,7 +128,12 @@ function update_test(){
             'roleta-playtech': roleta_playtech,
             'dados': dados,
             'football-studio': football_studio,
-            'football-dice': football_dice
+            'football-dice': football_dice,
+            'blaze': blaze,
+            'estrelabet': estrelabet,
+            'brxbet': brxbet,
+            'betano': betano,
+            'saurobet': saurobet
         }));
     
     });
@@ -173,6 +183,11 @@ function add_test(){
         var dados = document.getElementById('dados').dataset.id;
         var football_studio = document.getElementById('football-studio').dataset.id;
         var football_dice = document.getElementById('football-dice').dataset.id;
+        var blaze = document.getElementById('blaze').dataset.id;
+        var estrelabet = document.getElementById('estrelabet').dataset.id;
+        var brxbet = document.getElementById('brxbet').dataset.id;
+        var betano = document.getElementById('betano').dataset.id;
+        var saurobet = document.getElementById('saurobet').dataset.id;
         var xhr = new XMLHttpRequest();
         xhr.open('POST', '/add/newClient');
         xhr.setRequestHeader('Content-Type', 'application/json');
@@ -190,7 +205,12 @@ function add_test(){
             'roleta-playtech': roleta_playtech,
             'dados': dados,
             'football-studio': football_studio,
-            'football-dice': football_dice
+            'football-dice': football_dice,
+            'blaze': blaze,
+            'estrelabet': estrelabet,
+            'brxbet': brxbet,
+            'betano': betano,
+            'saurobet': saurobet
         }));
     
     });

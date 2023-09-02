@@ -16,6 +16,9 @@ def index(request):
         })
     else:
         return render(request, 'home/index.html')
+
+def test_iframe(request):
+    return render(request, 'home/crazy.html')
     
 @csrf_exempt
 def login(request):

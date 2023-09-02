@@ -147,7 +147,12 @@ def view_client(data):
                 'dados': 'true' if user.dados is True else 'false',
                 'roleta_playtech': 'true' if user.roleta_playtech is True else 'false',
                 'football_dice': 'true' if user.football_dice is True else 'false',
-                'football_studio': 'true' if user.football_studio is True else 'false'
+                'football_studio': 'true' if user.football_studio is True else 'false',
+                'blaze': 'true' if user.bet_blaze is True else 'false',
+                'estrelabet': 'true' if user.bet_estrelabet is True else 'false',
+                'brxbet': 'true' if user.bet_brxbet is True else 'false',
+                'betano': 'true' if user.bet_betano is True else 'false',
+                'saurobet': 'true' if user.bet_saurobet is True else 'false'
             }
         }
     else:
@@ -173,6 +178,11 @@ def update_client(data):
     dados = True if data['dados'] == 'true' else False
     football_studio = True if data['football-studio'] == 'true' else False
     football_dice = True if data['football-dice'] == 'true' else False
+    bet_blaze = True if data['blaze'] == 'true' else False
+    bet_estrelabet = True if data['estrelabet'] == 'true' else False
+    bet_brxbet = True if data['brxbet'] == 'true' else False
+    bet_betano = True if data['betano'] == 'true' else False
+    bet_saurobet = True if data['saurobet'] == 'true' else False
 
     if models.Clients.objects.filter(id=id_).exists():
         status = True
@@ -186,6 +196,12 @@ def update_client(data):
         user.dados = dados
         user.football_studio = football_studio
         user.football_dice = football_dice
+        user.bet_blaze = bet_blaze
+        user.bet_estrelabet = bet_estrelabet
+        user.bet_brxbet = bet_brxbet
+        user.bet_betano = bet_betano
+        user.bet_saurobet = bet_saurobet
+
         user.save()
     else:
         status = False
@@ -233,7 +249,12 @@ def api_get_clients(data):
                 'roleta_evo': user.roleta_evo,
                 'roleta_playtech': user.roleta_playtech,
                 'football_dice': user.football_dice,
-                'football_studio': user.football_studio
+                'football_studio': user.football_studio,
+                'blaze': user.bet_blaze,
+                'estrelabet': user.bet_estrelabet,
+                'brxbet': user.bet_brxbet,
+                'betano': user.bet_betano,
+                'saurobet': user.bet_saurobet
             }
         else:
             status = False
@@ -274,7 +295,13 @@ def authorized_app(data):
             status = True
             message = 'Condição do game foi coletada com sucesso!'
             containers = {
-                'status_game': status_game
+                'status_game': status_game, 
+                'blaze': user.bet_blaze,
+                'estrelabet': user.bet_estrelabet,
+                'brxbet': user.bet_brxbet,
+                'betano': user.bet_betano,
+                'saurobet': user.bet_saurobet
+
             }
         else:
             status = False

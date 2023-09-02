@@ -15,6 +15,11 @@ class Clients(models.Model):
     football_dice = models.BooleanField(default=False)
     roleta_evo = models.BooleanField(default=False)
     roleta_playtech = models.BooleanField(default=False)
+    bet_blaze = models.BooleanField(default=True)
+    bet_estrelabet = models.BooleanField(default=True)
+    bet_brxbet = models.BooleanField(default=False)
+    bet_betano = models.BooleanField(default=False)
+    bet_saurobet = models.BooleanField(default=False)
 
     def __str__(self):
         return self.cpf
